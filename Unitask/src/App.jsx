@@ -1,11 +1,19 @@
 import { useState } from 'react'
+import { SideBar } from './SideBar.jsx';
+import { Calendar} from './Calendar.jsx';
+
+import './index.css'
 
 function App() {
   
 
   return (
     <>
-      hola
+    <div className='grid'>
+    <SideBar/>
+    <Calendar/> 
+    </div>
+     
     </>
   )
 }
