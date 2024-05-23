@@ -18,7 +18,12 @@ function App() {
       <SideBar />
       <div className='justify-center space-x-10 flex my-7 ml-10'>
       <AppCalendar activities={activities} />
-      <ActivityCard />
+      <div>
+      <div className="containers bg-blue-100 p-4 rounded-t-lg">
+                <h2 className="text-xl mb-0 font-bold text-center">Actividades</h2>
+            </div>
+            <ActivityCard />
+      </div>
       </div>
       
     </ActivityProvider>
