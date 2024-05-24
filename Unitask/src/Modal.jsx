@@ -5,10 +5,12 @@ const Modal = ({ date, courses, importances, onClose, onSave }) => {
   const [name, setName] = useState("");
   const [importance, setImportance] = useState(importances[0]);
   const [description, setDescription] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newActivity = { course, name, importance, description };
+    const newActivity = { course, name, importance, description, startTime, endTime };
     onSave(newActivity);
   };
 
@@ -57,6 +59,26 @@ const Modal = ({ date, courses, importances, onClose, onSave }) => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
+          </div>
+          <div className="flex space-x-4">
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">Hora de inicio</label>
+              <input
+                type="time"
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                value={startTime}
+                onChange={(e) => setStartTime(e.target.value)}
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-sm font-medium text-gray-700">Hora de fin</label>
+              <input
+                type="time"
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                value={endTime}
+                onChange={(e) => setEndTime(e.target.value)}
+              />
+            </div>
           </div>
           <div className="flex justify-end space-x-4">
             <button type="button" onClick={onClose} className="px-4 py-2 bg-gray-500 text-white rounded-md">Cancelar</button>
