@@ -13,18 +13,28 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 import racconIcon from './assets/raccoon.svg'
 
+import { useNavigate } from "react-router-dom";
+
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
+  { name: 'Dashboard', href: '/', current: true },
+  { name: 'Cursos', href: '/cursos', current: false },
   { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Calendario', href: '/calendar', current: false },
 ]
+
+const handleLogout = () => {
+  localStorage.removeItem("loggedInUser");
+  navigate("/login"); // Redirige a la página de inicio de sesión
+};
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
  export function Navbar() {
+
+  const navigate = useNavigate();
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -124,7 +134,8 @@ function classNames(...classes) {
                       <MenuItem>
                         {({ focus }) => (
                           <a
-                            href="#"
+                            href="/login"
+                            onClick={handleLogout}
                             className={classNames(focus ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-400')}
                           >
                             Sign out
